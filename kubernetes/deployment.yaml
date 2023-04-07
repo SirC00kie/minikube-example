@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minikube-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: minikube-example
+  template:
+    metadata:
+      labels:
+        app: minikube-example
+    spec:
+      containers:
+        - name: minikube-example
+          image: kost0126/minikube-example:v1
+          ports:
+            - containerPort: 80
+              protocol: TCP
